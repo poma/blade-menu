@@ -4,7 +4,7 @@ namespace Poma\BladeMenu;
 
 use Illuminate\Support\ServiceProvider;
 
-class MenusServiceProvider extends ServiceProvider
+class MenuServiceProvider extends ServiceProvider
 {
 
     /**
@@ -53,14 +53,10 @@ class MenusServiceProvider extends ServiceProvider
      */
     protected function registerNamespaces()
     {
-        #$this->loadViewsFrom(__DIR__ . '/src/views', 'menus');
+        $this->loadViewsFrom(__DIR__ . '/src/views', 'menus');
 
-        #$this->publishes([
-        #    __DIR__ . '/src/config/config.php' => config_path('menus.php'),
-        #], 'config');
-
-        #$this->publishes([
-        #    __DIR__ . '/src/views' => base_path('resources/views/vendor/pingpong/menus'),
-        #], 'views');
+        $this->publishes([
+            __DIR__ . '/src/views' => base_path('resources/views/vendor/poma/blade-menu'),
+        ], 'views');
     }
 }
