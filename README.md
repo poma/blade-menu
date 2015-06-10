@@ -21,7 +21,7 @@ Menu::make('main', function()
 });
 ```
 
-**Renderingup**
+**Rendering**
 To render menu just include blade template with menu instance as argument
 
 ```php
