@@ -1,12 +1,18 @@
 {
-    "name": "poma/blade-menu",
-    "description": "Simple laravel menu based on blade templates",
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "poma",
-            "email": "Semenov.Roman@mail.ru"
-        }
-    ],
-    "require": {}
+  "name": "poma/blade-menu",
+  "description": "Simple laravel menu based on blade templates",
+  "keywords": ["laravel","menu","blade"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "poma",
+      "email": "Semenov.Roman@mail.ru"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "Poma\\BladeMenu\\": "src"
+    }
+  },
+  "require": {}
 }
