@@ -1,0 +1,12 @@
+{
+    "name": "poma/blade-menu",
+    "description": "Simple laravel menu based on blade templates",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "poma",
+            "email": "Semenov.Roman@mail.ru"
+        }
+    ],
+    "require": {}
+}
