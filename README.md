@@ -21,7 +21,7 @@ Menu::make('main', function()
 });
 ```
 
-** Rendering **
+**Renderingup**
 To render menu just include blade template with menu instance as argument
 
 ```php
@@ -36,9 +36,9 @@ In the `require` key of `composer.json` file add `"poma/blade-menu": "master"`:
 "require": {
 	"laravel/framework": "5.1.*",
 	"poma/blade-menu": "master"
-}  
+}
 ```
-  
+
 Run the composer update command:
 
 ```bash
