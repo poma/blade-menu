@@ -1,7 +1,7 @@
 ## This component is still not ready for use, I will update it in 1-2 days
 
 ## Blade menu
-I believe that building menus should be as simple as defining routes in your laravel application. Also I think that it easier to customize blade template than php code that generates menu HTML.
+I believe that building menus should be as simple as defining routes in your laravel application. Also it easier to customize blade template than php code that generates menu HTML.
 
 ## Getting Started
 Menus can be defined in `app/routes.php` or any other place you wish as long as it is auto loaded when a request hits your application.
@@ -29,13 +29,13 @@ To render menu just include blade template with menu instance as argument
 ```
 
 ## Installation
-In the `require` key of `composer.json` file add `"poma/blade-menu": "master"`:
+In the `require` key of `composer.json` file add `"poma/blade-menu": "dev-master"`:
 
 ```
 ...
 "require": {
 	"laravel/framework": "5.1.*",
-	"poma/blade-menu": "master"
+	"poma/blade-menu": "dev-master"
 }
 ```
 
@@ -49,12 +49,10 @@ Now append Laravel Menu service provider to  `providers` array in `app/config/ap
 
 ```php
 'providers' => [
-
     Illuminate\Foundation\Providers\ArtisanServiceProvider::class,
     Illuminate\Auth\AuthServiceProvider::class,
     ...
     Poma\BladeMenu\MenuServiceProvider::class,
-
 ],
 ```
 
@@ -62,12 +60,10 @@ At the end of `config/app.php` add `'Menu'    => Poma\BladeMenu\MenuFacade::clas
 
 ```php
 'aliases' => [
-
     'App'        => Illuminate\Support\Facades\App::class,
     'Artisan'    => Illuminate\Support\Facades\Artisan::class,
     ...
     'Menu'       => Poma\BladeMenu\MenuFacade::class,
-
 ],
 ```
 
