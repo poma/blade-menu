@@ -15,8 +15,8 @@ Menu::make('main', function()
 	Menu::route('about', 'About');
 	Menu::submenu('Submenu', [], function()
 	{
-		Menu::route('item1', 'Item 1');
-		Menu::route('item2', 'Item 2');
+		Menu::url('/section/item1', 'Item 1');
+		Menu::url('/section/item2', 'Item 2');
 	});
 });
 ```
