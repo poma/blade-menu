@@ -56,7 +56,7 @@ Now append Laravel Menu service provider to  `providers` array in `app/config/ap
 ],
 ```
 
-At the end of `config/app.php` add `'Menu'    => Poma\BladeMenu\MenuFacade::class` to the `$aliases` array:
+At the end of `config/app.php` add `'Menu'    => Poma\BladeMenu\MenuFacade::class` to the `aliases` array:
 
 ```php
 'aliases' => [
