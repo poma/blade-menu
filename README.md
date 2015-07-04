@@ -1,4 +1,4 @@
-## This component is still not ready for use, I will update it in 1-2 days
+## This component is still not ready for use, I will update it in a few days
 
 ## Blade menu
 I believe that building menus should be as simple as defining routes in your laravel application. Also it easier to customize blade template than php code that generates menu HTML.
