@@ -213,6 +213,17 @@ class Menu implements Countable
     }
 
     /**
+     * Filter menu using closure
+     *
+     * @param $name
+     * @param callable $predicate
+     */
+    public function filter($name, Closure $predicate)
+    {
+        $this->get($name)->filter($predicate);
+    }
+
+    /**
      * Get all menus.
      *
      * @return array

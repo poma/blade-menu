@@ -206,6 +206,11 @@ class MenuItem implements ArrayableContract
         }
     }
 
+    /**
+     * Filter menu using closure
+     *
+     * @param callable $predicate
+     */
 	public function filter(Closure $predicate)
 	{
 		$this->children = array_filter($this->children, $predicate);
@@ -213,6 +218,10 @@ class MenuItem implements ArrayableContract
 		foreach ($this->children as $item) {
 			$item->filter($predicate);
 		}
+
+        $this->children = array_filter($this->children, function (MenuItem $item) {
+            return ! ($item->type == 'submenu' && $item->hasChildren() == false);
+        });
 	}
 
 	public function getAction()
