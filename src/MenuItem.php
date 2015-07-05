@@ -42,14 +42,14 @@ class MenuItem implements ArrayableContract
      *
      * @var MenuItem[]
      */
-    public $children = array();
+    public $children = [];
 
     /**
      * Constructor.
      *
      * @param array $properties
      */
-    public function __construct($properties = array())
+    public function __construct($properties = [])
     {
         $this->properties = $properties;
         $this->fill($properties);
@@ -103,18 +103,6 @@ class MenuItem implements ArrayableContract
     public function getRequest()
     {
         return ltrim(str_replace(url(), '', $this->getUrl()), '/');
-    }
-
-    /**
-     * Get icon.
-     *
-     * @param  null|string $default
-     * @return string
-     */
-    public function getIcon($default = null)
-    {
-	    $icon = array_get($this->attributes, 'icon');
-        return ! is_null($icon) ? '<i class="' . $icon . '"></i>' : $default;
     }
 
     /**

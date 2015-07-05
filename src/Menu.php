@@ -14,7 +14,7 @@ class Menu implements Countable
      *
      * @var array
      */
-    protected $menus = array();
+    protected $menus = [];
 
     /**
      * Pointer to current root menu item
@@ -26,9 +26,9 @@ class Menu implements Countable
     /**
      * Stack of parent menu items
      *
-     * @var \App\Services\Menu\MenuItem[]
+     * @var MenuItem[]
      */
-    protected $parentStack = array();
+    protected $parentStack = [];
 
     /**
      * The constructor.
@@ -44,7 +44,7 @@ class Menu implements Countable
 
     /**
      * @param array $properties
-     * @return static
+     * @return MenuItem
      */
     protected function makeItem(array $properties)
     {
@@ -103,12 +103,13 @@ class Menu implements Countable
      * Make new menu.
      *
      * @param  string $name
-     * @return \App\Services\Menu\MenuItem
+     * @param callable $callback
+     * @return MenuItem
      */
     public function make($name, Closure $callback = null)
     {
         $this->root = null;
-        $this->parentStack = array();
+        $this->parentStack = [];
 
         $item = $this->makeItem(['name' => $name, 'type' => 'root']);
         $this->root = $item;
@@ -134,7 +135,7 @@ class Menu implements Countable
             'type' => 'submenu',
             'title' => $title,
             'attributes' => $attributes
-        ]);
+        ] + $attributes);
 
         $this->addSubmenu($item, $callback);
 
@@ -150,14 +151,13 @@ class Menu implements Countable
      * @param array $attributes
      * @return static
      */
-    public function route($route, $title, $parameters = array(), $attributes = array())
+    public function route($route, $title, $parameters = [], $attributes = [])
     {
-        return $this->makeAndAdd(array(
+        return $this->makeAndAdd([
             'type' => 'item',
             'route' => array($route, $parameters),
-            'title' => $title,
-            'attributes' => $attributes
-        ));
+            'title' => $title
+        ] + $attributes);
     }
 
 
@@ -165,9 +165,9 @@ class Menu implements Countable
      * Add new child menu.
      *
      * @param  array $attributes
-     * @return \App\Services\Menu\MenuItem
+     * @return MenuItem
      */
-    public function add(array $attributes = array())
+    public function add(array $attributes = [])
     {
         return $this->makeAndAdd($attributes);
     }
@@ -180,14 +180,14 @@ class Menu implements Countable
      * @param array $attributes
      * @return static
      */
-    public function url($url, $title, $attributes = array())
+    public function url($url, $title, $attributes = [])
     {
-        return $this->makeAndAdd(array(
+        return $this->makeAndAdd([
             'type' => 'item',
             'url' => $url,
             'title' => $title,
             'attributes' => $attributes
-        ));
+        ] + $attributes);
     }
 
     /**
